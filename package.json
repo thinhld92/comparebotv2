@@ -1,0 +1,22 @@
+{
+  "name": "comparepricev1.5",
+  "version": "1.0.0",
+  "description": "Version chạy 1 bộ lấy giá, server sẽ tự so sánh và đưa ra đề xuất\r mt5 gọi lên lấy kết quả và thực thi, khả năng giống nhau cao\r Không dùng phương pháp mỗi mt5 gọi lên mỗi lần check nữa\r Chưa có realtime",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
+    "lodash": "^4.17.21",
+    "mysql2": "^3.12.0",
+    "node-cron": "^3.0.3",
+    "redis": "^4.7.0",
+    "sequelize": "^6.37.5",
+    "winston": "^3.17.0"
+  }
+}

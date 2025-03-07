@@ -1,0 +1,8 @@
+# Bỏ qua file cấu hình cục bộ
+.env
+
+# Bỏ qua thư mục dependencies
+node_modules/
+
+# Bỏ qua thư mục logs
+logs/
