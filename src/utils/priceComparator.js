@@ -84,6 +84,7 @@ const comparePrices = async () => {
     data.diff = diff;
     data.orderRecommend = orderRecommend;
     data.closeRecommend = closeRecommend;
+    data.brokerTime = latestStandard.brokerTime;
     await recommendService.create(data);
   } catch (error) {
     logger.error('Lỗi khi so sánh giá:', error);

@@ -13,6 +13,7 @@ const Recommend = sequelize.define("Recommend", {
     diff: {type: DataTypes.DECIMAL(11, 5), allowNull: false , field: "diff"},
     orderRecommend: {type: DataTypes.INTEGER, allowNull: true, field: "order_recommend" },
     closeRecommend: {type: DataTypes.INTEGER, allowNull: true, field: "close_recommend" },
+    brokerTime: { type: DataTypes.STRING(20), allowNull: true , field: "broker_time" },
     createdAt: { 
         type: DataTypes.DATE(3), 
         allowNull: false, 

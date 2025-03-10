@@ -9,6 +9,7 @@ const StandardPrice = sequelize.define("StandardPrice", {
     askPrice: { type: DataTypes.DECIMAL(11, 5), allowNull: false , field: "ask_price" },
     bidPrice: { type: DataTypes.DECIMAL(11, 5), allowNull: false , field: "bid_price" },
     lastTickTime: { type: DataTypes.BIGINT, allowNull: true , field: "last_tick_time" },
+    brokerTime: { type: DataTypes.STRING(20), allowNull: true , field: "broker_time" },
     createdAt: { 
         type: DataTypes.DATE(3), 
         allowNull: false, 
