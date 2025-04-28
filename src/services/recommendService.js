@@ -34,7 +34,7 @@ module.exports = {
         };
       }
 
-      if (latestRecommend.symbol !== data.symbol) {
+      if (latestRecommend.symbol.substring(0, 6) !== data.symbol.substring(0, 6)) {
         return {
           status: 400,
           message: 'Sai symbol lay gia!', 
