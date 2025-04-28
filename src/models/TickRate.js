@@ -7,8 +7,8 @@ const TickRate = sequelize.define("TickRate", {
     standardServer: { type: DataTypes.STRING(50), allowNull: true, field: "standard_server" },
     diffServer: { type: DataTypes.STRING(50), allowNull: true, field: "diff_server" },
     standardRate: {type: DataTypes.INTEGER, allowNull: true, field: "standard_rate" },
-    diffRate: {type: DataTypes.INTEGER, allowNull: true, field: "standard_rate" },
-    brokerTime: { type: DataTypes.STRING(20), allowNull: true , field: "broker_time" },
+    diffRate: {type: DataTypes.INTEGER, allowNull: true, field: "diff_rate" },
+    brokerTime: { type: DataTypes.STRING(50), allowNull: true , field: "broker_time" },
     createdAt: { 
         type: DataTypes.DATE(3), 
         allowNull: false, 
