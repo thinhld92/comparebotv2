@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Op } = require('sequelize');
 const sequelize = require('../config/database');
 
 const DiffPrice = sequelize.define("DiffPrice", {
@@ -35,6 +35,40 @@ DiffPrice.getLastestRecordByAccount = async function(acountId) {
         return record;
     } catch (error) {
         console.error("Error fetching record:", error);
+        throw error;
+    }
+};
+
+// Count total records
+DiffPrice.countAll = async function() {
+    return await this.count();
+};
+
+// Count records from within the CLEANUP_THRESHOLD time period
+DiffPrice.countRecentRecords = async function() {
+    // Get CLEANUP_THRESHOLD from environment (in milliseconds)
+    // Default to 2 minutes if not set
+    const thresholdMs = parseInt(process.env.CLEANUP_THRESHOLD, 10) || 2 * 60 * 1000;
+    const thresholdTime = new Date(Date.now() - thresholdMs);
+    
+    return await this.count({
+        where: {
+            createdAt: {
+                [Op.gte]: thresholdTime
+            }
+        }
+    });
+};
+
+DiffPrice.getLastRecord = async function() {
+    try {
+        const record = await this.findOne({
+            order: [['id', 'DESC']]
+        });
+
+        return record;
+    } catch (error) {
+        console.error("Error fetching last record:", error);
         throw error;
     }
 };

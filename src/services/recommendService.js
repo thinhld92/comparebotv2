@@ -13,7 +13,7 @@ module.exports = {
       return { status: 406, message: error.message };
     }
   },
-  getLast: async () => {
+  getLast: async (data) => {
     try {
       let latestRecommend = priceCache.getLatestRecommend();
       if (!latestRecommend) {
@@ -31,6 +31,13 @@ module.exports = {
         return {
           status: 400,
           message: 'Khong ton tai de xuat', 
+        };
+      }
+
+      if (latestRecommend.symbol !== data.symbol) {
+        return {
+          status: 400,
+          message: 'Sai symbol lay gia!', 
         };
       }
 

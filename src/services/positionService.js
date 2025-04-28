@@ -16,7 +16,7 @@ module.exports = {
         const recommend = await Recommend.findByPk(data.recommendId);
         if (recommend && newPosition) {
           const teleMessage = `${newPosition.symbol}||${newPosition.positionType}||${newPosition.bidPrice}||${newPosition.askPrice}||${parseFloat(recommend.diff).toFixed(3)}||${newPosition.positionOpen}`;
-          telegramService.sendMessage(teleMessage);
+          // telegramService.sendMessage(teleMessage);
         }
       });
 
@@ -74,7 +74,7 @@ module.exports = {
               teleMessage += `${position.symbol}||Close ${position.positionType}||${parseFloat(recommend.diff).toFixed(3)}||${position.ticket}\n`;
             }
           }
-          telegramService.sendMessage(teleMessage);
+          // telegramService.sendMessage(teleMessage);
         }
       });
 
